@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Organizze">
         <activity
+            android:name=".activity.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.Intro"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
