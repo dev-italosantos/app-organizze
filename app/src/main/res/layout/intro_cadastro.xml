@@ -37,7 +37,7 @@
 
     <Button
         android:id="@+id/buttonCadastra"
-        android:onClick="takePicture"
+        android:onClick="btnCadastrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -51,6 +51,7 @@
 
     <TextView
         android:id="@+id/textView5"
+        android:onClick="btnEntrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

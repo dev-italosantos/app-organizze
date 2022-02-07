@@ -1,7 +1,11 @@
 package com.example.organizze;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
+import com.example.organizze.activity.CadastroActivity;
+import com.example.organizze.activity.LoginActivity;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 
@@ -42,9 +46,11 @@ public class MainActivity extends IntroActivity {
         );
     }
 
-    public void btnCadastra() {
+    public void btnEntrar(View view) {
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
-    public void btnEntra() {
+    public void btnCadastrar(View view) {
+        startActivity(new Intent(this, CadastroActivity.class));
     }
 }
