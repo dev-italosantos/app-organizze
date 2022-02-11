@@ -56,5 +56,6 @@ public class CadastroActivity extends AppCompatActivity {
 
     public void signUp() {
         auth = ConfigFirebase.getFirebaseAuth();
+        auth.createUserWithEmailAndPassword("email", "password");
     }
 }
