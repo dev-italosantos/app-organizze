@@ -9,10 +9,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.organizze.R;
+import com.example.organizze.config.ConfigFirebase;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class CadastroActivity extends AppCompatActivity {
     private EditText editName, editEmail, editPassword;
-    private Button buttonCadast;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +25,7 @@ public class CadastroActivity extends AppCompatActivity {
         editEmail = findViewById(R.id.editEmail);
         editPassword = findViewById(R.id.editPassword);
 
-        buttonCadast = findViewById(R.id.buttonCadast);
+        Button buttonCadast = findViewById(R.id.buttonCadast);
 
         buttonCadast.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +55,6 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
     public void signUp() {
-
+        auth = ConfigFirebase.getFirebaseAuth();
     }
 }
