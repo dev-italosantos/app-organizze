@@ -30,7 +30,7 @@ public class CadastroActivity extends AppCompatActivity {
         editEmail = findViewById(R.id.editEmail);
         editPassword = findViewById(R.id.editPassword);
 
-        Button buttonCadast = findViewById(R.id.buttonCadast);
+        Button buttonCadast = findViewById(R.id.buttonEntar);
 
         buttonCadast.setOnClickListener(view -> {
             String campoName = editName.getText().toString();
