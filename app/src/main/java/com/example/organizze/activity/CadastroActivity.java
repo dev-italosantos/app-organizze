@@ -47,6 +47,7 @@ public class CadastroActivity extends AppCompatActivity {
                         user.setPassword(campoEmail);
 
                         signUp();
+
                     } else {
                         Toast.makeText(CadastroActivity.this, "Preencha o password!",
                                 Toast.LENGTH_SHORT).show();

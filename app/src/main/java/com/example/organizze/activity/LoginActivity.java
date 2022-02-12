@@ -9,11 +9,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.organizze.R;
+import com.example.organizze.config.ConfigFirebase;
+import com.example.organizze.model.User;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText editEmail, editPassword;
-    private Button buttonEntrar;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,16 +25,22 @@ public class LoginActivity extends AppCompatActivity {
 
         editEmail = findViewById(R.id.editEmail);
         editPassword = findViewById(R.id.editPassword);
-        buttonEntrar = findViewById(R.id.buttonEntar);
+        Button buttonEntrar = findViewById(R.id.buttonEntar);
 
         buttonEntrar.setOnClickListener(new View.OnClickListener() {
-            String campoEmail = editEmail.getText().toString();
-            String campoPassword = editPassword.getText().toString();
+            final String campoEmail = editEmail.getText().toString();
+            final String campoPassword = editPassword.getText().toString();
 
             @Override
             public void onClick(View view) {
                 if (!campoEmail.isEmpty()) {
                     if (!campoPassword.isEmpty()) {
+                        user = new User();
+
+                        user.setEmail(campoEmail);
+                        user.setPassword(campoPassword);
+
+                        SignIn();
 
                     } else {
                         Toast.makeText(LoginActivity.this, "Preencha o password!",
@@ -43,5 +52,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    public void SignIn() {
+        FirebaseAuth auth = ConfigFirebase.getFirebaseAuth();
     }
 }
