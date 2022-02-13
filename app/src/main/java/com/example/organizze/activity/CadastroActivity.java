@@ -27,8 +27,8 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
 
         editName = findViewById(R.id.editName);
-        editEmail = findViewById(R.id.editEmail);
-        editPassword = findViewById(R.id.editPassword);
+        editEmail = findViewById(R.id.editEmailLogin);
+        editPassword = findViewById(R.id.editPasswordLogin);
 
         Button buttonCadast = findViewById(R.id.buttonEntar);
 
@@ -44,7 +44,7 @@ public class CadastroActivity extends AppCompatActivity {
 
                         user.setName(campoName);
                         user.setEmail(campoEmail);
-                        user.setPassword(campoEmail);
+                        user.setPassword(campoPassword);
 
                         signUp();
 
@@ -65,7 +65,8 @@ public class CadastroActivity extends AppCompatActivity {
 
     public void signUp() {
         FirebaseAuth auth = ConfigFirebase.getFirebaseAuth();
-        auth.createUserWithEmailAndPassword(user.getEmail(),
+        auth.createUserWithEmailAndPassword(
+                user.getEmail(),
                 user.getPassword()).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(CadastroActivity.this, "Sucesso ao cadastra usuário!",
