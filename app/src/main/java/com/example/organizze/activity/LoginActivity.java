@@ -12,6 +12,10 @@ import com.example.organizze.R;
 import com.example.organizze.config.ConfigFirebase;
 import com.example.organizze.model.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -59,7 +63,24 @@ public class LoginActivity extends AppCompatActivity {
                 user.getEmail(),
                 user.getPassword()
         ).addOnCompleteListener(task -> {
-
+            if (task.isSuccessful()) {
+                Toast.makeText(LoginActivity.this, "Sucesso ao cadastra usuário!",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                String exception;
+                try {
+                    throw Objects.requireNonNull(task.getException());
+                } catch (FirebaseAuthInvalidUserException erro) {
+                    exception = "Usuário não está cadastrado!";
+                } catch (FirebaseAuthInvalidCredentialsException erro) {
+                    exception = "Emial e password não correspondem a um usuário cadastrado!";
+                } catch (Exception erro) {
+                    exception = "Erro ao cadastra usuário!" + erro.getMessage();
+                    erro.printStackTrace();
+                }
+                Toast.makeText(LoginActivity.this, exception,
+                        Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }
