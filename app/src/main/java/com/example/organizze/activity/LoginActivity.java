@@ -55,5 +55,11 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void SignIn() {
         FirebaseAuth auth = ConfigFirebase.getFirebaseAuth();
+        auth.signInWithEmailAndPassword(
+                user.getEmail(),
+                user.getPassword()
+        ).addOnCompleteListener(task -> {
+
+        });
     }
 }
