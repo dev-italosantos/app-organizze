@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                 user.getEmail(),
                 user.getPassword()).addOnCompleteListener( this, task -> {
             if (task.isSuccessful()) {
-                Toast.makeText(LoginActivity.this, "Sucesso ao cadastra usuário!",
+                Toast.makeText(LoginActivity.this, "Login usuário!",
                         Toast.LENGTH_SHORT).show();
             } else {
                 String exception;
