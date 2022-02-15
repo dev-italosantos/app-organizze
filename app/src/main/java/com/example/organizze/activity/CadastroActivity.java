@@ -69,8 +69,7 @@ public class CadastroActivity extends AppCompatActivity {
                 user.getEmail(),
                 user.getPassword()).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
-                Toast.makeText(CadastroActivity.this, "Sucesso ao cadastra usuário!",
-                        Toast.LENGTH_SHORT).show();
+               finish();
             } else {
                 String exception;
                 try {

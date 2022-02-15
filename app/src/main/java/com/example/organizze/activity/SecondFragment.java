@@ -9,7 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.organizze.activity.databinding.FragmentSecondBinding;
+import com.example.organizze.R;
+import com.example.organizze.databinding.FragmentSecondBinding;
 
 public class SecondFragment extends Fragment {
 

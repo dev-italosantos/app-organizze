@@ -2,6 +2,7 @@ package com.example.organizze.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,8 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                 user.getEmail(),
                 user.getPassword()).addOnCompleteListener( this, task -> {
             if (task.isSuccessful()) {
-                Toast.makeText(LoginActivity.this, "Login usuário!",
-                        Toast.LENGTH_SHORT).show();
+                nextHome();
             } else {
                 String exception;
                 try {
@@ -79,5 +79,10 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void nextHome() {
+        startActivity(new Intent(this, HomeActivity.class));
+        finish();
     }
 }
